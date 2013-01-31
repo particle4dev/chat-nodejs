@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	div#chatContainer
+		div(class="chatTopBar rounded", id="headerChat")
+			span
+				span(class="name",style="left: 10px;") Chat Application With Node.JS 
+					
+				
+		div(class="chatTopBar rounded", style="display:none;", id="loginInformation")		
+			span
+				img( src="http://www.gravatar.com/avatar/18960b314e96833b151f847128b309a5?size=23&amp;default=http%3A%2F%2Fwww.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fsize%3D23", width="23", height="23")	
+				span.name nobody
+				a( class="logoutButton rounded") Logout
+
+		div(id="chatLineHolder", style="overflow-x: hidden; overflow-y: hidden; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; width: 370px; ")
+			div(class="jspContainer", style="width: 350px; height: 360px; ")
+				div( class="jspPane", style="padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; top: 0px; width: 369px;")
+					
+					
+		div#chatUsers.rounded
+			div(style="width:100%;float:left;text-align:center;")
+				| State 
+				img( id="loadingIcon", src="/images/loading.gif", width="23", height="23",style="top:7px;position:relative;")
+			div.chatUsersContent
+							
+				p.count 
+					span(id="number", style="display: inline-block")| 0 
+					| people online
+		div#chatBottomBar.rounded
+			div.tip
+			form( id="loginForm", action="#login", method="post", style="display: block; ")
+				input( id="name", name="name", class="rounded defaultText", maxlength="16")
+				input( id="images", name="images", class="rounded defaultText")
+				input( type="button", class="blueButton",id="blueButtonLogin" ,value="Login",disabled="disabled")
+			form( id="submitForm",action="#message", method="post", style="display: none; ")
+				input( id="chatText", name="chatText", class="rounded", maxlength="255")
+				input( type="button", id="blueButtonSend", class="blueButton", value="Submit")
+	
+	div#footer
+		p Copyrights © Steve Hoang
